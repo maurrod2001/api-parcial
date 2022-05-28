@@ -54,13 +54,13 @@ app.post("/medic", (req, res) => {
   });
 });
 
-app.put("/medic/:id", (req, res) => {
-  const { id } = req.params;
-  const { name, lastname, email, phone } = req.body;
-  const sql = `UPDATE medic SET name = '${name}' , lastname ='${lastname}', email='${email}', phone = '${phone}' WHERE id =${id}`;
+app.put("/medic/:name", (req, res) => {
+  const { name } = req.params;
+  const {  lastname, email, phone } = req.body;
+  const sql = `UPDATE medic SET  lastname ='${lastname}', email='${email}', phone = '${phone}' WHERE id =(SELECT id FROM medic WHERE name='${name}')`;
   connection.query(sql, (error) => {
     if (error) throw error;
-    res.json({response:"medic aggregate"});
+    res.json({response:"medic updated"});
   });
 });
 

@@ -1,10 +1,11 @@
 // @ts-check
 //* impotar paquetes
-var express = require("express");
-var morgan = require("morgan");
-var cors = require("cors");
-var bodyPaser = require("body-parser");
-var apps = express();
+const express = require("express");
+const morgan = require("morgan");
+const cors = require("cors");
+const bodyPaser = require("body-parser");
+const apps = express();
+
 //* middlewares
 apps.use(cors());
 apps.use(morgan("tiny"));

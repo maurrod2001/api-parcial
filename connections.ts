@@ -1,5 +1,6 @@
+// @ts-check
 const mysql = require("mysql");
-const connection = mysql.createConnection({
+const connections = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
@@ -7,4 +8,4 @@ const connection = mysql.createConnection({
     port: 3307,
   });
 
-module.exports = connection
+module.exports = connections
